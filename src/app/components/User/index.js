@@ -1,15 +1,12 @@
 import React from "react";
 
-class User extends React.Component {
-
-  render() {
+// Dump component are those component they don't know about actions and states
+// StateLess component
+export const User = (props) => {
     return (
       <div className="container mt-5">
         <h3>The User Page</h3>
-        <p>User ID: </p>
+        <p>User Name: {props.username} </p>
       </div>
     )
-  }
 }
-
-export default User;

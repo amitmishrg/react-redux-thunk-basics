@@ -1,24 +1,14 @@
 import React from "react";
-import { render } from "react-dom";
-import {BrowserRouter, Route} from "react-router-dom";
+import {render} from "react-dom";
+import {Provider} from "react-redux"; // bridge between react and redux
 
-import Root from "./components/Root";
-import Home from "./components/Home";
-import User from "./components/User";
+import App from "./container/App";
+import store from "../app/store";
 
-
-class App extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Route path="/" component={Root} />
-          <Route path="/user" component={User}/>
-          <Route path="/home" component={Home}/>
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
-
-render(<App/>, document.getElementById('root'));
+// Provider is provide the store for react component
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root')
+);
